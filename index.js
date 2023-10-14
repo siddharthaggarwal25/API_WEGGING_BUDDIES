@@ -6,7 +6,7 @@ const Shelter = require('./models/shelter');
 const http = require('http').Server(app);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-mongoose.connect('mongodb+srv://aggarwalsiddharth49:pmGTyh3et7XlNWpi@cluster0.cicpmgi.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect('mongodb://127.0.0.1:27017/test_master')
     .then(() => console.log('databse connected'))
     .catch(e => console.log(e));
 
