@@ -6,14 +6,14 @@ const Shelter = require('./models/shelter');
 const http = require('http').Server(app);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-mongoose.connect('mongodb://127.0.0.1:27017/test_master')
+mongoose.connect('mongodb+srv://aggarwalsiddharth49:pmGTyh3et7XlNWpi@cluster0.cicpmgi.mongodb.net/?retryWrites=true&w=majority')
     .then(() => console.log('databse connected'))
     .catch(e => console.log(e));
 
-app.post('/pets', async(req, res) => {
+app.post('/pets', async (req, res) => {
     try {
         const data = req.body;
-        const pets = new Pets({...data });
+        const pets = new Pets({ ...data });
         pets.petID = pets._id;
         const data2 = await pets.save();
         console.log(data2)
@@ -27,13 +27,13 @@ app.post('/pets', async(req, res) => {
 app.delete('/pets/delete/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        const data = await Pets.findByIdAndDelete(id );
+        const data = await Pets.findByIdAndDelete(id);
         console.log(data);
         res.send('Data has been deleted');
     } catch (e) {
         res.send(e);
     }
-    
+
 })
 
 app.get('/pets', async (req, res) => {
@@ -93,6 +93,6 @@ app.get('/', (req, res) => {
     res.send('on home page');
 })
 
-http.listen(3000, () => {
+http.listen(5000, () => {
     console.log('connected to port 3000');
 })
