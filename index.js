@@ -6,7 +6,7 @@ const Shelter = require('./models/shelter');
 const http = require('http').Server(app);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-mongoose.connect('mongodb://127.0.0.1:27017/test_master')
+mongoose.connect('mongodb+srv://aggarwalsiddharth49:wtpvkdyk9tu1PnlY@cluster0.fsxlufj.mongodb.net/?retryWrites=true&w=majority')
     .then(() => console.log('databse connected'))
     .catch(e => console.log(e));
 
@@ -94,5 +94,5 @@ app.get('/', (req, res) => {
 })
 
 http.listen(5000, () => {
-    console.log('connected to port 3000');
+    console.log('connected to port 5000');
 })
